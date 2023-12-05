@@ -30,8 +30,9 @@ const jsreport = require('jsreport-core')({
         'chrome-pdf': {
             timeout: 120000, // 60 segundos
             chrome: {
-            timeout: 120000, // 60 segundos
-            // Otras opciones de configuración de Chrome
+                launchOptions: {
+                    args: ['--no-sandbox']
+                  }
             },
         },
     },
