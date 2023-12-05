@@ -18,28 +18,28 @@ const jsreport = require('jsreport-core')({
 		}
     },
     extensions: {
-        "scripts": {
-            "allowedModules": ["*"],
-            "timeout": 120000
-        },
-        "tasks": {
-            "strategy": "in-process",
-            "timeout": 120000,
-            "allowedModules": []
-        },
-        'chrome-pdf': {
-            timeout: 120000, // 60 segundos
-            chrome: {
-                launchOptions: {
-                    args: ['--no-sandbox']
-                  }
+            "scripts": {
+                "allowedModules": ["*"],
+                "timeout": 120000
+            },
+            "tasks": {
+                "strategy": "in-process",
+                "timeout": 120000,
+                "allowedModules": []
+            },
+            'chrome-pdf': {
+                timeout: 120000, // 60 segundos
+                chrome: {
+                    launchOptions: {
+                        args: ['--no-sandbox', '--disable-gpu', '--single-process']
+                    }
+                },
             },
         },
-    },
-    
-    logger: {
-		silent: false // when true, it will silence all transports defined in logger
-	}
+        
+        logger: {
+            silent: false // when true, it will silence all transports defined in logger
+        }
 });
 //jsreport.use(require('jsreport-static-resources')())
 jsreport.use(handlebars);
