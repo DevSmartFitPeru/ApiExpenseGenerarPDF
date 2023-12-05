@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 //app.use("*",utilHttp.setInitHeaders);
 
-app.post('/constancia/:int_id', require("./reports/constancia_recepcion/business"));
+app.post('/generearpdf', require("./reports/expenses/business"));
 
 app.use("/images",express.static(__dirname + '/images'))
 app.use("/resources",express.static(__dirname + '/resources'))

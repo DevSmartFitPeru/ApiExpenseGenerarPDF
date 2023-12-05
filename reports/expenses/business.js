@@ -9,8 +9,6 @@ const moment = require("moment");
 var pathTemplate = __dirname + '/template.html';
 
 
-var formatDate = utilReport.formatDate;
-
 module.exports = async function (req, res, next) {
     //req.trace.str_api_process = "FORMATO_PDF_eXPENSES";
     try {
@@ -18,10 +16,19 @@ module.exports = async function (req, res, next) {
         var obj_datos = req.body;
         console.log('obj_datos', obj_datos)
         //eturn obj_datos;
-        //var data = {cab:obj_constancia , muestras : arr_muestras}
+        
+        // obj_datos.arr_cabecera[0].forEach(item => {
+        //     item.dt_fecha_movilidad = !item.dt_fecha_movilidad ? null : moment(item.dt_fecha_movilidad).format('DD/MM/YYYY');
+        // });
+        // var obj_cabecera = obj_datos.arr_cabecera[0];
+
+        obj_datos.arr_detalles.forEach(item => {
+            item.dt_fecha_comprobante = !item.dt_fecha_comprobante ? null : moment(item.dt_fecha_comprobante).format('DD/MM/YYYY');
+        });
+        var data = {cab:obj_datos.arr_cabecera , detalles : obj_datos.arr_detalles, aprobador :obj_datos.arr_aprobador }
 
         var pathTemplateHeaderFooter = __dirname + "/footer_template.html";
-        var formatResult = await utilReport.pdf(pathTemplate, obj_datos, {
+        var formatResult = await utilReport.pdf(pathTemplate, data, {
             landscape: true,
             format: "A4",
             displayHeaderFooter: false,

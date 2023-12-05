@@ -38,14 +38,14 @@
         <div class="col-3 q-pl-sm q-mb-xs">
             <span style="font-weight:bold">MONEDA REPORTE:</span>
         
-            <span>SOL </span>
+            <span>{{cab.str_tipo_moneda}} </span>
 
         </div>
         
         <div class="col-4 q-pl-sm q-mb-xs">
             <span style="font-weight:bold">ADELANTO:</span>
         
-            <span>0.00</span>
+            <span>{{cab.dec_monto_adelanto}}</span>
             
         </div>
 
@@ -59,34 +59,34 @@
         <div class="col-3 q-pl-sm q-mb-xs">
             <span style="font-weight:bold">TIPO DE CAMBIO:</span>
         
-            <span >3.25</span>
+            <span > {{cab.dec_tipo_cambio}}</span>
             
         </div>
         <div class="col-4 q-pl-sm q-mb-xs">
             <span style="font-weight:bold">FECHA:</span>
         
-            <span >19/12/2023</span>
+            <span >{{cab.dt_fecha_movilidad}}</span>
             
         </div>
 
         <div class="col-5 q-pl-sm q-mb-xs">
             <span style="font-weight:bold">USUARIO: </span>
-            <span >MICAHEL BALLADARES QUIROZ</span>
+            <span >{{cab.nombres}} {{cab.apellidos}}</span>
         </div>
 
         <div class="col-3 q-pl-sm q-mb-xs">
             <span style="font-weight:bold">TIPO DE DOCUMENTO: </span>
-            <span >Documento Nacional de Indentidad</span>
+            <span > {{cab.tipo_documento_identidad}}</span>
         </div>
 
         <div class="col-4 q-pl-sm q-mb-xs">
             <span style="font-weight:bold">NRO. DOCUMENTO: </span>
-            <span >7120320320</span>
+            <span >{{cab.nro_documento}}</span>
         </div>
 
         <div class="col-12 q-pl-sm q-mb-xs">
             <span style="font-weight:bold">DESCRIPCION: </span>
-            <span >ACA IRA LA DESCRIPCION ACA IRA LA DESCRIPCION ACA IRA LA DESCIRPCION</span>
+            <span >{{cab.str_descripcion}}</span>
         </div>
        
     </div>    
@@ -153,81 +153,88 @@
             </tr>
         </thead>
         <tbody>
+            {{#each detalles}}
             <tr >
                 <td>
                     <div class="row">
-                        <div class="col-12">holaaaaaaaaaaaaaa</div>
+                        <div class="col-12">{{str_tipo_documento}} - {{str_descripcion_tipo_documento}}</div>
                         
                     </div>
                 </td>
                 <td>
                     <div class="row">
-                        <div class="col-12">holaaaaaaaaaaaaaa</div>
+                        <div class="col-12">{{dt_fecha_comprobante}}</div>
                     </div>
                 </td>
                 <td>
                     <div class="row">
-                        <div class="col-12">holaaaaaaaaaaaaaa</div>
+                        <div class="col-12">{{str_descripcion_tipo_gasto}}</div>
                     </div>
                 </td>
                 <td>
                     <div class="row">
-                        <div class="col-12">holaaaaaaaaaaaaaa holaaaaaaaaaaaaaa</div>
+                        <div class="col-12">{{str_descripcion}}</div>
                     </div>
                 </td>
                 <td>
                     <div class="row">
-                        <div class="col-12">holaaaaaaaaaaaaaa</div>
+                        <div class="col-12">{{str_nro_documento}}</div>
                     </div>
                 </td>
                 <td>
                     <div class="row">
-                        <div class="col-12">holaaaaaaaaaaaaaa</div>
+                        <div class="col-12">{{str_tipo_moneda}}</div>
                     </div>
                 </td>
                 <td>
                     <div class="row">
-                        <div class="col-12">holaaaaaaaaaaaaaa</div>
+                        <div class="col-12">{{str_filial}}</div>
                     </div>
                 </td>
                 <td>
                     <div class="row">
-                        <div class="col-12">holaaaaaaaaaaaaaa</div>
+                        <div class="col-12">MIRAFLORES - LIMA</div>
+                    </div>
+                </td>
+                
+                <td>
+                    <div class="row">
+                        <div class="col-12">{{str_nro_documento_proveedor}}</div>
                     </div>
                 </td>
                 <td>
                     <div class="row">
-                        <div class="col-12">holaaaaaaaaaaaaaa</div>
+                        <div class="col-12">{{str_razon_social_proveedor}}</div>
                     </div>
                 </td>
                 <td>
                     <div class="row">
-                        <div class="col-12">holaaaaaaaaaaaaaa</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="row">
-                        <div class="col-12">holaaaaaaaaaaaaaa</div>
+                        <div class="col-12">{{ dec_importe_mo }}</div>
                     </div>
                 </td>
             </tr>
+            {{/each}}
         </tbody>
                 
     </table>
 
     <div class="col-12 text-center row q-px-auto q-mt-xl" >
-        <div class="col-1 q-my-auto">
+        <!-- <div class="col-1 q-my-auto">
             <div>APROBADOR</div>
-        </div>
+        </div> -->
         <div class="col-6">
             
             <div class="col-12" style="margin-top: 125px">_______________________________</div>
-            <div class="col-12">NOMBRE Y APELLIDO DE APROBADOR</div>
+            <div class="col-12">{{aprobador.nombres}} {{aprobador.apellidos}}</div>
+            <div class="col-12">{{aprobador.nro_documento}}</div>
+            <div class="col-12" >(Aprobador)</div>
         </div>
         <div class="col-5">
             <div class="col-12"><img width="150" src="http://localhost:3019/images/sello_recibido.png"> </img></div>
             <div class="col-12" >_______________________________</div>
-            <div class="col-12">NPMBRE Y APELLIDO DEL COLABORADOR</div>
+            <div class="col-12"> {{cab.nombres}} {{cab.apellidos}} </div>
+            <div class="col-12"> {{cab.nro_documento}}</div>
+            <div class="col-12" >(Colaborador)</div>
         </div>
     </div>
 </body>
