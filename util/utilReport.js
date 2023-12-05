@@ -17,6 +17,11 @@ const jsreport = require('jsreport-core')({
 			enabled: true //disable cache
 		}
     },
+    chrome: {
+        launchOptions: {
+            args: ['--no-sandbox', '--disable-gpu', '--single-process']
+        }
+    },
     extensions: {
             "scripts": {
                 "allowedModules": ["*"],
@@ -29,11 +34,7 @@ const jsreport = require('jsreport-core')({
             },
             'chrome-pdf': {
                 timeout: 120000, // 60 segundos
-                chrome: {
-                    launchOptions: {
-                        args: ['--no-sandbox', '--disable-gpu', '--single-process']
-                    }
-                },
+               
             },
         },
         
