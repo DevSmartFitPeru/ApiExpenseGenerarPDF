@@ -1,0 +1,20 @@
+{
+    "rules": {
+        "maestros_generales": {
+
+        }
+    },
+    "codes": {
+        "00001": "Operación realizada correctamente",
+        "business": {
+            "00002": "Ya existe una aplicación con el código {param1}",
+            "00003": "Ya existe un grupo con el código {param1}"
+        },
+        "system_error": {
+            "50001": "Los parametros de entrada no cumplen las validaciones",
+            "50002": "Los parametros de salida no cumplen las validaciones",
+            "50003": "Su tiempo de sesión ha expirado"
+        }
+    }
+
+}

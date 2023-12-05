@@ -1,0 +1,10 @@
+{   
+    "TablasDB" : {
+        "core_unidad_almacenamiento": "core_unidad_almacenamiento",
+        "maestro_ubicaciones": "maestro_ubicaciones",
+        "core_manifiesto": "core_manifiesto",
+        "core_guia_aerea": "core_guia_aerea"
+
+        
+    }
+}

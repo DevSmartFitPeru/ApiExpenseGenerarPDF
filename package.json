@@ -1,0 +1,56 @@
+{
+  "name": "api_maestros_generales",
+  "version": "1.0.0",
+  "description": "aplicacion backend del centro de aplicaciones",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Balladares",
+  "license": "ISC",
+  "dependencies": {
+    "@gitbeaker/node": "^28.0.2",
+    "accepts": "^1.3.7",
+    "axios": "^0.19.2",
+    "barcode": "^0.1.0",
+    "body-parser-xml": "^2.0.0",
+    "collect.js": "^4.28.6",
+    "cookie-parser": "^1.4.5",
+    "exceljs": "^4.4.0",
+    "express": "^4.17.1",
+    "express-http-proxy": "^1.6.2",
+    "express-session": "^1.17.1",
+    "express-useragent": "^1.0.15",
+    "gitlab-download": "^2.0.0",
+    "handlebars": "^4.7.7",
+    "helmet": "^3.23.3",
+    "html-pdf-node": "^1.0.7",
+    "jsbarcode-new": "^1.0.1",
+    "jsreport-chrome-pdf": "^1.10.0",
+    "jsreport-client": "^1.2.0",
+    "jsreport-core": "^2.10.1",
+    "jsreport-handlebars": "^2.1.0",
+    "jsreport-pdf-utils": "^1.10.4",
+    "jsreport-phantom-pdf": "^2.6.1",
+    "jsreport-resources": "^2.1.0",
+    "jsreport-scripts": "^2.6.0",
+    "jszip": "^3.5.0",
+    "localizify": "^2.0.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "node-gitlab-webhook": "^1.0.6",
+    "nodemon": "^3.0.2",
+    "os": "^0.1.1",
+    "puppeteer": "^8.0.0",
+    "uuidv4": "^6.2.3",
+    "validate.js": "^0.13.1",
+    "xml2js": "^0.4.23"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "db/data/*",
+      "apps/*"
+    ]
+  }
+}
