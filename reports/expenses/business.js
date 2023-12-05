@@ -36,8 +36,9 @@ module.exports = async function (req, res, next) {
         }, pathTemplateHeaderFooter);
 
         var nombre_file = "expenses_"+obj_datos.arr_cabecera.nro_documento;
-        res.set({ 'Content-Disposition': 'inline; filename=' +  (nombre_file+".pdf") });
-        formatResult.stream.pipe(res);
+        // res.set({ 'Content-Disposition': 'inline; filename=' +  (nombre_file+".pdf") });
+        // formatResult.stream.pipe(res);
+        res.json(formatResult.content);
         // res.status(200)
         // res.json(obj_datos);
     } catch (error) {
