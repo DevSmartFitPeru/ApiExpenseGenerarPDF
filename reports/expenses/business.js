@@ -17,13 +17,11 @@ module.exports = async function (req, res, next) {
         console.log('obj_datos', obj_datos)
         //eturn obj_datos;
         
-        // obj_datos.arr_cabecera[0].forEach(item => {
-        //     item.dt_fecha_movilidad = !item.dt_fecha_movilidad ? null : moment(item.dt_fecha_movilidad).format('DD/MM/YYYY');
-        // });
+        obj_datos.arr_cabecera.dt_fecha_movilidad = !obj_datos.arr_cabecera.dt_fecha_movilidad ? null : moment(obj_datos.arr_cabecera.dt_fecha_movilidad).add(1,'days').format('DD/MM/YYYY');
         // var obj_cabecera = obj_datos.arr_cabecera[0];
 
         obj_datos.arr_detalles.forEach(item => {
-            item.dt_fecha_comprobante = !item.dt_fecha_comprobante ? null : moment(item.dt_fecha_comprobante).format('DD/MM/YYYY');
+            item.dt_fecha_comprobante = !item.dt_fecha_comprobante ? null : moment(item.dt_fecha_comprobante).add(1,'days').format('DD/MM/YYYY');
         });
         var data = {cab:obj_datos.arr_cabecera , detalles : obj_datos.arr_detalles, aprobador :obj_datos.arr_aprobador }
 
@@ -37,7 +35,7 @@ module.exports = async function (req, res, next) {
             marginTop: "160px",
         }, pathTemplateHeaderFooter);
 
-        var nombre_file = "archivo_node";
+        var nombre_file = "expenses_"+obj_datos.arr_cabecera.nro_documento;
         res.set({ 'Content-Disposition': 'inline; filename=' +  (nombre_file+".pdf") });
         formatResult.stream.pipe(res);
         // res.status(200)
