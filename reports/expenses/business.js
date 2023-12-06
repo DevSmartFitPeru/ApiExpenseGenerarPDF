@@ -36,10 +36,16 @@ module.exports = async function (req, res, next) {
         }, pathTemplateHeaderFooter);
 
         var nombre_file = "expenses_"+obj_datos.arr_cabecera.nro_documento;
-        // res.set({ 'Content-Disposition': 'inline; filename=' +  (nombre_file+".pdf") });
-        // formatResult.stream.pipe(res);
-        res.json(formatResult.content);
-        // res.status(200)
+        //res.setHeader({ 'Content-Disposition': 'attachment; filename=' +  (nombre_file+".pdf") });
+        res.setHeader('Content-Type', 'application/pdf');
+        res.setHeader('Content-Disposition', 'attachment; filename='+nombre_file+'.pdf');
+        console.log('formatResult', formatResult)
+        formatResult.stream.pipe(res);
+        //const reportBuffer = await formatResult.toBuffer();
+        
+        // res.send(formatResult);
+        //const pdfBuffer = await report.content.read();
+        res.status(200)
         // res.json(obj_datos);
     } catch (error) {
         console.log('error', error)
