@@ -23,7 +23,8 @@ module.exports = async function (req, res, next) {
         obj_datos.arr_detalles.forEach(item => {
             item.dt_fecha_comprobante = !item.dt_fecha_comprobante ? null : moment(item.dt_fecha_comprobante).add(1,'days').format('DD/MM/YYYY');
         });
-        var data = {cab:obj_datos.arr_cabecera , detalles : obj_datos.arr_detalles, aprobador :obj_datos.arr_aprobador }
+
+        var data = {cab:obj_datos.arr_cabecera , detalles : obj_datos.arr_detalles, aprobador :obj_datos.arr_aprobador,firma_aprobador : obj_datos.urlFirmaAprobador, firma_colaborador : obj_datos.urlFirmaColaborador }
 
         var pathTemplateHeaderFooter = __dirname + "/footer_template.html";
         var formatResult = await utilReport.pdf(pathTemplate, data, {
@@ -39,11 +40,10 @@ module.exports = async function (req, res, next) {
         //res.setHeader({ 'Content-Disposition': 'attachment; filename=' +  (nombre_file+".pdf") });
         res.setHeader('Content-Type', 'application/pdf');
         res.setHeader('Content-Disposition', 'attachment; filename='+nombre_file+'.pdf');
-        console.log('formatResult', formatResult)
         formatResult.stream.pipe(res);
         //const reportBuffer = await formatResult.toBuffer();
         
-        // res.send(formatResult);
+        //res.json(fileBuffer);
         //const pdfBuffer = await report.content.read();
         res.status(200)
         // res.json(obj_datos);
