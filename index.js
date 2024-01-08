@@ -1,13 +1,10 @@
 var express = require('express');
-var proxy = require("express-http-proxy");
 const cookieParser = require('cookie-parser');
-const utilHttp = require('./util/utilHttp');
 const bodyParser = require('body-parser');
-var path = require("path")
 require('body-parser-xml')(bodyParser);
 var useragent = require('express-useragent');
 const variables = require("./variables");
-
+const cors = require('cors');
 require('body-parser-xml')(bodyParser);
 
 var app = express();
@@ -23,6 +20,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 //app.use("*",utilHttp.setInitHeaders);
+app.use(cors()); 
 
 app.post('/generearpdf', require("./reports/expenses/business"));
 
